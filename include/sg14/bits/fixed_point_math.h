@@ -26,7 +26,7 @@ constexpr auto rounding_conversion(double d) {
 //so this is always zero
 template<typename Rep, int Exponent,
 			typename std::enable_if<(Exponent >= 0), int>::type dummy = 0>
-inline auto exp2m1_0to1(fixed_point<Rep, Exponent>) {
+constexpr inline auto exp2m1_0to1(fixed_point<Rep, Exponent>) {
 	return fixed_point<Rep, Exponent>{0};
 }
 
@@ -34,7 +34,7 @@ inline auto exp2m1_0to1(fixed_point<Rep, Exponent>) {
 template<typename Rep, int Exponent
  ,	typename std::enable_if<(Exponent < 0), int>::type dummy = 0
 >
-inline auto exp2m1_0to1(fixed_point<Rep, Exponent> x) {
+constexpr inline auto exp2m1_0to1(fixed_point<Rep, Exponent> x) {
 
 	//Build the type with the same number of bits, all fractional,
 	//and unsigned. That should be enough to exactly hold enough bits
